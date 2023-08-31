@@ -1,21 +1,16 @@
-import { ProductsType } from '../../constants/types';
-import Card from './card';
+import { ProductsType } from "../../constants/types";
+import Card from "./card";
 
 export default function Page({ products }: { products: ProductsType }) {
+  if (!products) return <>Loading...</>;
 
-  if (!products) return <h5>Api error</h5>;
-  
+  const listItems = products.map((item) => (
+    <Card key={item.id} icon={item.icon} name={item.line.name} />
+  ));
+
   return (
-    <div className="w-full mt-40">
-      <ul className="container w-full">
-          {products.map((item) => 
-            <Card           
-              key={item.id}                         
-              icon={item.icon} 
-              name={item.line.name} 
-            />
-          )}
-      </ul>
+    <div className='w-full'>
+      <ul className='container w-full'>{listItems}</ul>
     </div>
   );
 }
