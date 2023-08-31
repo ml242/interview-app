@@ -1,8 +1,9 @@
 import { ReactNode, createContext, useContext, useState, useEffect } from 'react';
-import { ProductsType } from '../constants/types';
+import { Product, ProductsType } from '../constants/types';
 
 export type ProductsContextType = {
-    products: ProductsType | undefined
+    products: ProductsType | undefined,
+    getProduct: (id: string) => Product | undefined
 };
 
 const ProductsContext = createContext<ProductsContextType>({} as ProductsContextType);
@@ -26,12 +27,16 @@ const ProductsProvider = ({ children }: Props) => {
     }
   };
 
+    const getProduct = (id: string): Product | undefined => {
+      return products?.find((item: Product) => item.id === id);
+    };
+
   useEffect(() => {
     getProducts();
   }, [])
   
   return (
-    <ProductsContext.Provider value={{ products }}>
+    <ProductsContext.Provider value={{ products, getProduct }}>
       {children}
     </ProductsContext.Provider>
   );
