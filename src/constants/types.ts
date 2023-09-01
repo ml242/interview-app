@@ -31,7 +31,7 @@ export type Product = {
     guids: string[],
     uisp: UispType,
     id: string,
-    product?: {
+    product: {
         abbrev: string,
         name: string
     },

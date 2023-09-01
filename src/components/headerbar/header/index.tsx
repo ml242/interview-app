@@ -5,7 +5,6 @@ import NavBar from "../navbar";
 
 const Navbar = () => {
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <div className='w-full bg-gray-100 sticky top-0'>

@@ -11,7 +11,7 @@ export default function Page({ products }: { products: ProductsType }) {
             src={`${ImageSource}${item.icon.id}_${item.icon.resolutions[0][0]}x${item.icon.resolutions[0][1]}.png`}
           />
           <div className='basis-1/2'>{item.line.name}</div>
-          <div className='basis-1/2'>{item.product?.abbrev}</div>
+          <div className='basis-1/2'>{item.product.name}</div>
         </li>
       </a>
     );
