@@ -17,6 +17,11 @@ export type ProductsContextType = {
   tags: string[] | undefined;
   handleFilters: (items: string[] | undefined) => void;
   filteredProducts: ProductsType | undefined;
+  handleSearch: (item: string) => void;
+  options: {
+    value: string;
+    label: string;
+  }[];
 };
 
 const ProductsContext = createContext<ProductsContextType>(
@@ -33,6 +38,9 @@ const ProductsProvider = ({ children }: Props) => {
   const [products, setProducts] = useState<ProductsType>();
   const [filteredProducts, setFilteredProducts] = useState<ProductsType>();
   const [tags, setTags] = useState<string[]>();
+  const [options, setOptions] = useState<{ value: string; label: string }[]>(
+    []
+  );
 
   const getProducts = async () => {
     try {
@@ -101,6 +109,40 @@ const ProductsProvider = ({ children }: Props) => {
     [products]
   );
 
+  const handleSearch = useCallback(
+    (input?: string) => {
+      if (products && input && input.length > 2) {
+        const filteredNames = products.filter((product) => {
+          return product.product.name
+            .toLocaleLowerCase()
+            .includes(input.toLocaleLowerCase());
+        });
+        const filteredTags = products.filter((product) => {
+          return product.product.abbrev
+            .toLocaleLowerCase()
+            .includes(input.toLocaleLowerCase());
+        });
+
+        const results = new Set([...filteredNames, ...filteredTags]);
+        const arr: {
+          label: string;
+          value: string;
+        }[] = [];
+
+        results.forEach((item) => {
+          arr.push({
+            // label: { name: item.product.name, abbrev: item.product.abbrev }, i need an autocomplete that can do this
+
+            label: item.product.name,
+            value: item.id,
+          });
+        });
+        setOptions(arr);
+      }
+    },
+    [products]
+  );
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -119,6 +161,8 @@ const ProductsProvider = ({ children }: Props) => {
         tags,
         handleFilters,
         filteredProducts,
+        handleSearch,
+        options,
       }}
     >
       {children}
