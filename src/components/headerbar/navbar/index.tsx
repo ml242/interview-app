@@ -12,7 +12,7 @@ const NavBar = () => {
   const previousItem = getPrevious(params.id);
 
   return (
-    <div className='w-full bg-white px-16'>
+    <div className='flex w-full bg-white px-8 h-12'>
       <div className='flex max-w-full items-center basis-full space-between'>
         <button onClick={() => navigate("/")} className='flex flex-grow'>
           Back
@@ -24,7 +24,10 @@ const NavBar = () => {
             </button>
           )}
           {nextItem && (
-            <button onClick={() => navigate(`/product/${nextItem}`)}>
+            <button
+              className='pl-4'
+              onClick={() => navigate(`/product/${nextItem}`)}
+            >
               Next
             </button>
           )}

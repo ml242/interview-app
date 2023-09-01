@@ -1,7 +1,7 @@
 import { IconType } from "../../../constants/types";
 
 const Card = ({ icon, name }: { icon: IconType; name: string }) => {
-  console.log(icon);
+  console.log("");
   return <h1>{name}</h1>;
 };
 
