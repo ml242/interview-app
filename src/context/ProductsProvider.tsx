@@ -4,6 +4,7 @@ import {
   useContext,
   useState,
   useEffect,
+  useCallback,
 } from "react";
 import { API_URL } from "../constants/globals";
 import { Product, ProductsType } from "../constants/types";
@@ -14,6 +15,8 @@ export type ProductsContextType = {
   getNext: (id: string) => string | undefined;
   getPrevious: (id: string) => string | undefined;
   tags: string[] | undefined;
+  handleFilters: (items: string[] | undefined) => void;
+  filteredProducts: ProductsType | undefined;
 };
 
 const ProductsContext = createContext<ProductsContextType>(
@@ -28,6 +31,7 @@ export const useProducts = () => useContext(ProductsContext);
 
 const ProductsProvider = ({ children }: Props) => {
   const [products, setProducts] = useState<ProductsType>();
+  const [filteredProducts, setFilteredProducts] = useState<ProductsType>();
   const [tags, setTags] = useState<string[]>();
 
   const getProducts = async () => {
@@ -83,6 +87,20 @@ const ProductsProvider = ({ children }: Props) => {
     setTags(allTags);
   };
 
+  const handleFilters = useCallback(
+    (items?: string[]) => {
+      if (typeof items === "undefined" || typeof products === "undefined")
+        return setFilteredProducts(undefined);
+
+      const filteredItems = products.filter((product) =>
+        items.includes(product.line.name)
+      );
+
+      setFilteredProducts(filteredItems);
+    },
+    [products]
+  );
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -93,7 +111,15 @@ const ProductsProvider = ({ children }: Props) => {
 
   return (
     <ProductsContext.Provider
-      value={{ products, getProduct, getNext, getPrevious, tags }}
+      value={{
+        products,
+        getProduct,
+        getNext,
+        getPrevious,
+        tags,
+        handleFilters,
+        filteredProducts,
+      }}
     >
       {children}
     </ProductsContext.Provider>

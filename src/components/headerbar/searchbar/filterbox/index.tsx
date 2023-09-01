@@ -29,17 +29,17 @@ const FilterBox = () => {
         />
       </button>
       <div className='relative px-4'>
-        <button
-          className={isOpen ? "text-red-600" : "text-gray-600"}
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className='text-gray-600' onClick={() => setIsOpen(!isOpen)}>
           Filter
         </button>
-        {isOpen && (
-          <div className='bg-white absolute right-0 w-48 flex text-gray p-4'>
-            <FilterForm />
-          </div>
-        )}
+
+        <div
+          className={`bg-white absolute right-0 w-48 flex text-gray p-4 ${
+            isOpen ? "" : "hidden"
+          }`}
+        >
+          <FilterForm />
+        </div>
       </div>
     </div>
   );

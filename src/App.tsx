@@ -8,7 +8,7 @@ import useConnect from "./connect";
 import "./App.css";
 
 function App() {
-  const { products } = useProducts();
+  const { filteredProducts, products } = useProducts();
   const { viewType } = useConnect();
 
   if (!products) return <>Loading</>;
@@ -17,9 +17,9 @@ function App() {
     <>
       <Navbar />
       {viewType === "grid" ? (
-        <GridComponent products={products} />
+        <GridComponent products={filteredProducts || products} />
       ) : (
-        <ListComponent products={products} />
+        <ListComponent products={filteredProducts || products} />
       )}
     </>
   );

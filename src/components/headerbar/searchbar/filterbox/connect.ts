@@ -1,9 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+import { useProducts } from '../../../../context/ProductsProvider';
 
 const useConnect = () => {
     const navigate = useNavigate();
+    const { search } = useLocation();
+
     const [filters, setFilters] = useState<string[]>();
+
+    const { handleFilters } = useProducts();
 
     const handleChange = useCallback((val: string) => {
         if (!filters) {
@@ -25,7 +30,6 @@ const useConnect = () => {
     }, [filters]);
     
     useEffect(() => {
-        console.log('filters ', filters );
         if (filters) {
             navigate(`/?filters=${filters?.toString()}`);
         } else {
@@ -33,6 +37,19 @@ const useConnect = () => {
         }
     }, [filters]);
     
+    useEffect(() => {
+        const filters = new URLSearchParams(search).get("filters");
+        if (filters) {
+            const arrayOfItems = filters.split(',');            
+            setFilters(arrayOfItems);
+            handleFilters(arrayOfItems);
+        }
+    }, []);
+
+    useEffect(() => {
+        handleFilters(filters ? filters : undefined);
+    }, [filters]);
+
     return {
         filters,
         handleChange,
