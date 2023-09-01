@@ -28,9 +28,9 @@ const FilterBox = () => {
           height={"36"}
         />
       </button>
-      <p className='relative text-gray-600 px-4'>
+      <div className='relative px-4'>
         <button
-          className={isOpen ? "text-red-600" : "inherit"}
+          className={isOpen ? "text-red-600" : "text-gray-600"}
           onClick={() => setIsOpen(!isOpen)}
         >
           Filter
@@ -40,7 +40,7 @@ const FilterBox = () => {
             <FilterForm />
           </div>
         )}
-      </p>
+      </div>
     </div>
   );
 };
