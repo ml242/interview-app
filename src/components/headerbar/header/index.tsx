@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className=''>
         <div className='flex items-center'>
           <Logo />
-          <ul className='flex basis-full space-between pr-4'>
+          <ul className='flex basis-full space-between pr-8'>
             <li className='flex flex-grow justify-end'>
               <p className='text-gray-600'>by Matt Lucas</p>
             </li>

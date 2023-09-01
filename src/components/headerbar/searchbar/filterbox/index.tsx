@@ -28,7 +28,7 @@ const FilterBox = () => {
           height={"36"}
         />
       </button>
-      <div className='relative px-4'>
+      <div className='relative pl-4'>
         <button className='text-gray-600' onClick={() => setIsOpen(!isOpen)}>
           Filter
         </button>
