@@ -12,7 +12,7 @@ const FilterBox = () => {
   const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
 
   return (
-    <div className='flex flex-grow items-center justify-end'>
+    <div className='hidden md:flex flex-grow items-center justify-end'>
       <button
         onClick={() =>
           setSearchParams(() => {

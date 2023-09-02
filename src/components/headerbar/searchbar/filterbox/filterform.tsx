@@ -24,7 +24,7 @@ const FilterForm = () => {
 
   return (
     <form
-      className='flex flex-col basis-full rounded-[8px] text-bold p-4'
+      className='flex flex-col basis-full rounded-[8px] text-bold p-4 shadow'
       onClick={(e) => e.stopPropagation()}
     >
       <p className='text-black text-opacity-75 my-4'>Product Line</p>

@@ -10,7 +10,8 @@ const SearchBar = () => {
         <div className='flex items-center'>
           <SearchBox />
           <div className='flex pl-4 text-gray-400'>
-            <span>Devices {filteredProducts?.length || products?.length}</span>
+            <span className='hidden md:'>Devices </span>
+            <span> {filteredProducts?.length || products?.length}</span>
           </div>
         </div>
         <FilterBox />

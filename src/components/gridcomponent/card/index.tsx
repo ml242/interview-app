@@ -7,7 +7,7 @@ const Card = ({ item }: { item: Product }) => {
   const imageIndex = item.icon.resolutions.length - 1;
 
   return (
-    <div className='flex flex-col h-full relative'>
+    <div className='flex flex-col h-full relative shadow-sm'>
       <div className='flex flex-col items-center justify-center relative'>
         <div className='bg-gray-100/25 flex relative w-full p-[8px]'>
           <a
