@@ -22,12 +22,7 @@ const FilterBox = () => {
           })
         }
       >
-        <img
-          src='/src/assets/buttons/list.svg'
-          alt='Logo'
-          width={"36"}
-          height={"36"}
-        />
+        <img src='/buttons/list.svg' alt='Logo' width={"36"} height={"36"} />
       </button>
       <button
         onClick={() =>
@@ -39,12 +34,7 @@ const FilterBox = () => {
           })
         }
       >
-        <img
-          src='/src/assets/buttons/grid.svg'
-          alt='Logo'
-          width={"36"}
-          height={"36"}
-        />
+        <img src='/buttons/grid.svg' alt='Logo' width={"36"} height={"36"} />
       </button>
       <div className='relative pl-4'>
         <button
