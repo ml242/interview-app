@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useProducts } from "../context/ProductsProvider";
 import Navbar from "./../components/headerbar";
+import ProductCard from "./productcard";
 
 const Product = () => {
   const { id = "" } = useParams();
@@ -12,7 +13,7 @@ const Product = () => {
   return (
     <>
       <Navbar />
-      <h1>Hello the id is {product.id}</h1>;
+      <ProductCard product={product} />
     </>
   );
 };

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDetectClickOutside } from "react-detect-click-outside";
 import FilterForm from "./filterform";
 
 const FilterBox = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+
+  const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
 
   return (
     <div className='flex flex-grow items-center justify-end'>
@@ -29,7 +32,11 @@ const FilterBox = () => {
         />
       </button>
       <div className='relative pl-4'>
-        <button className='text-gray-600' onClick={() => setIsOpen(!isOpen)}>
+        <button
+          ref={ref}
+          className='text-gray-600'
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Filter
         </button>
 

@@ -2,7 +2,7 @@ import { IconType } from "../../../constants/types";
 
 const Card = ({ icon, name }: { icon: IconType; name: string }) => {
   console.log("");
-  return <h1>{name}</h1>;
+  return <div>{name}</div>;
 };
 
 export default Card;

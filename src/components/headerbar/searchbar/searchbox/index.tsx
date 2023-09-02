@@ -14,7 +14,7 @@ const SearchBox = () => {
       onSearch={handleSearch}
       placeholder='Search'
       options={options}
-      onSelect={(value) => navigate(`/${value}`)}
+      onSelect={(value) => navigate(`/product/${value}`)}
     />
   );
 };

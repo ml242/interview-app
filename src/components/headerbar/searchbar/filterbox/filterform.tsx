@@ -22,9 +22,13 @@ const FilterForm = () => {
   });
 
   return (
-    <form className='flex flex-col basis-full'>
+    <form
+      className='flex flex-col basis-full'
+      onClick={(e) => e.stopPropagation()}
+    >
       {checkboxes}
       <button
+        disabled={!filters || filters.length < 1}
         onClick={(e) => {
           e.preventDefault();
           resetFilters();
