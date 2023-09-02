@@ -23,7 +23,7 @@ const FilterForm = () => {
 
   return (
     <form
-      className='flex flex-col basis-full'
+      className='flex flex-col basis-full rounded-[8px]'
       onClick={(e) => e.stopPropagation()}
     >
       {checkboxes}

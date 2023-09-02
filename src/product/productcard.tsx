@@ -13,9 +13,9 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <div className='flex pt-4 w-4/6 mx-auto gap-x-8 min-h-full h-72'>
-      <div className='flex grow p-4 basis-full min-h-max'>
+      <div className='p-4 min-h-max bg-gray-100/25 rounded-[8px]'>
         <div
-          className='flex grow'
+          className='w-[260px] h-[260px]'
           style={{
             backgroundImage: `url(${ImageSource}${product.icon.id}_${product.icon.resolutions[imageIndex][0]}x${product.icon.resolutions[imageIndex][1]}.png)`,
             backgroundSize: "contain",
