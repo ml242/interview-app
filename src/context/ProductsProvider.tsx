@@ -32,6 +32,8 @@ type Props = {
   children: ReactNode;
 };
 
+const collator = new Intl.Collator("en-US");
+
 export const useProducts = () => useContext(ProductsContext);
 
 const ProductsProvider = ({ children }: Props) => {
@@ -46,7 +48,11 @@ const ProductsProvider = ({ children }: Props) => {
     try {
       const res = await fetch(API_URL, { cache: "no-store" });
       const data = await res.json();
-      setProducts(data.devices);
+      setProducts(
+        data.devices.sort((a: Product, b: Product) => {
+          collator.compare(a.product.name, b.product.name);
+        })
+      );
     } catch (error) {
       console.log("error fetching products", error);
     }
