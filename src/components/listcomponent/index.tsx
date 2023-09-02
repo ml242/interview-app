@@ -10,8 +10,10 @@ export default function Page({ products }: { products: ProductsType }) {
             className='basis-2/10'
             src={`${ImageSource}${item.icon.id}_${item.icon.resolutions[0][0]}x${item.icon.resolutions[0][1]}.png`}
           />
-          <div className='basis-1/2'>{item.line.name}</div>
-          <div className='basis-1/2'>{item.product.name}</div>
+          <div className='flex basis-1/2'>{item.line.name}</div>
+          <div className='flex h-[20px] lg:basis-1/2'>
+            <p className='sm:overflow-hidden '>{item.product.name}</p>
+          </div>
         </li>
       </a>
     );
