@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import FilterForm from "./filterform";
 import { replaceParam } from "../../../../constants/globals";
 
 const FilterBox = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { search } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
@@ -22,7 +23,13 @@ const FilterBox = () => {
           })
         }
       >
-        <img src='/buttons/list.svg' alt='Logo' width={"36"} height={"36"} />
+        <img
+          src='/buttons/list.svg'
+          alt='Logo'
+          width={"36"}
+          height={"36"}
+          className={!search.includes("grid") ? "blueSvg" : ""}
+        />
       </button>
       <button
         onClick={() =>
@@ -34,7 +41,13 @@ const FilterBox = () => {
           })
         }
       >
-        <img src='/buttons/grid.svg' alt='Logo' width={"36"} height={"36"} />
+        <img
+          src='/buttons/grid.svg'
+          alt='Logo'
+          width={"36"}
+          height={"36"}
+          className={search.includes("grid") ? "blueSvg" : ""}
+        />
       </button>
       <div className='relative pl-4'>
         <button
