@@ -23,10 +23,10 @@ export type UnifiType = {
     ethernetMaxSpeedMegabitsPerSecond: number;
     systemIdHexadecimal: string;
     features: {
-      bandsteer: true;
-      ax: true;
-      gen: 2;
-      atfDisabled: true;
+      bandsteer: boolean;
+      ax: boolean;
+      gen: number;
+      atfDisabled: boolean;
     };
     chipset: string;
     type: string;

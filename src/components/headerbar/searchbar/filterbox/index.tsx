@@ -42,11 +42,11 @@ const FilterBox = () => {
           className='text-gray-600'
           onClick={() => setIsOpen(!isOpen)}
         >
-          Filter
+          <p className={isOpen ? "text-[#006fff]" : ""}>Filter</p>
         </button>
 
         <div
-          className={`bg-white absolute right-0 w-48 flex text-gray p-4 ${
+          className={`bg-white absolute right-0 w-48 flex text-gray ${
             isOpen ? "" : "hidden"
           }`}
         >

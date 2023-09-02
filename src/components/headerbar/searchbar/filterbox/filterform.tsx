@@ -9,6 +9,7 @@ const FilterForm = () => {
       <div key={i} className='flex'>
         <label className='flex basis-full justify-between'>
           <input
+            className=''
             type='checkbox'
             name={item}
             value={item}
@@ -23,9 +24,10 @@ const FilterForm = () => {
 
   return (
     <form
-      className='flex flex-col basis-full rounded-[8px]'
+      className='flex flex-col basis-full rounded-[8px] text-bold p-4'
       onClick={(e) => e.stopPropagation()}
     >
+      <p className='text-black text-opacity-75 my-4'>Product Line</p>
       {checkboxes}
       <button
         disabled={!filters || filters.length < 1}
@@ -35,7 +37,13 @@ const FilterForm = () => {
         }}
         className='flex flex-start'
       >
-        reset
+        <p
+          className={`text-opacity-75 my-4 ${
+            !filters || filters.length < 1 ? "text-red-300" : "text-red-600"
+          }`}
+        >
+          Reset
+        </p>
       </button>
     </form>
   );
