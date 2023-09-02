@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import FilterForm from "./filterform";
+import { replaceParam } from "../../../../constants/globals";
 
 const FilterBox = () => {
-  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
 
   const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
@@ -12,7 +13,14 @@ const FilterBox = () => {
   return (
     <div className='flex flex-grow items-center justify-end'>
       <button
-        onClick={() => navigate({ pathname: "/", search: "?display=list" })}
+        onClick={() =>
+          setSearchParams(() => {
+            return new URLSearchParams({
+              ...replaceParam("display", searchParams),
+              ...{ display: "list" },
+            });
+          })
+        }
       >
         <img
           src='/src/assets/buttons/list.svg'
@@ -22,7 +30,14 @@ const FilterBox = () => {
         />
       </button>
       <button
-        onClick={() => navigate({ pathname: "/", search: "?display=grid" })}
+        onClick={() =>
+          setSearchParams(() => {
+            return new URLSearchParams({
+              ...replaceParam("display", searchParams),
+              ...{ display: "grid" },
+            });
+          })
+        }
       >
         <img
           src='/src/assets/buttons/grid.svg'

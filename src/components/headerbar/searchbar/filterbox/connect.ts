@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { 
+    useLocation,
+    useSearchParams
+} from 'react-router-dom';
 import { useProducts } from '../../../../context/ProductsProvider';
+import { replaceParam } from '../../../../constants/globals';
 
 const useConnect = () => {
-    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
     const { search } = useLocation();
 
     const [filters, setFilters] = useState<string[]>();
@@ -26,15 +30,27 @@ const useConnect = () => {
     
     const resetFilters = useCallback(() => {
         setFilters(undefined);
-        navigate('/');
+        setSearchParams(() => {
+            return new URLSearchParams({
+              ...replaceParam("filters", searchParams),
+            });
+          })
     }, [filters]);
     
     useEffect(() => {
         if (filters) {
-            navigate(`/?filters=${filters?.toString()}`);
+            setSearchParams(() => {
+                return new URLSearchParams({
+                    ...replaceParam("filters", searchParams),
+                    ...{ filters: filters.toString() }
+                })
+            });
         } else {
-            navigate('/');
-        }
+            setSearchParams(() => {
+                return new URLSearchParams({
+                  ...replaceParam("filters", searchParams),
+                });
+              })        }
     }, [filters]);
     
     useEffect(() => {
