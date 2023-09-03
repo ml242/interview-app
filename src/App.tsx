@@ -1,6 +1,7 @@
 import Navbar from "./components/headerbar";
 import GridComponent from "./components/gridcomponent";
 import ListComponent from "./components/listcomponent";
+import Loader from "./components/loader";
 
 import { useProducts } from "./context/ProductsProvider";
 import useConnect from "./connect";
@@ -11,7 +12,7 @@ function App() {
   const { filteredProducts, products } = useProducts();
   const { viewType } = useConnect();
 
-  if (!products) return <>Loading</>;
+  if (!products) return <Loader />;
 
   return (
     <>

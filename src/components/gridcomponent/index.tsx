@@ -1,8 +1,9 @@
 import { ProductsType } from "../../constants/types";
 import Card from "./card";
+import Loader from "../loader";
 
 export default function Page({ products }: { products: ProductsType }) {
-  if (!products) return <>Loading...</>;
+  if (!products) return <Loader />;
 
   const listItems = products.map((item) => <Card key={item.id} item={item} />);
 

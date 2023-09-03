@@ -6,6 +6,8 @@ const Card = ({ item }: { item: Product }) => {
   const navigate = useNavigate();
   const imageIndex = item.icon.resolutions.length - 1;
 
+  console.log(item.line.name);
+
   return (
     <div className='flex flex-col h-full relative shadow-sm'>
       <div className='flex flex-col items-center justify-center relative'>
@@ -14,6 +16,9 @@ const Card = ({ item }: { item: Product }) => {
             className='w-full h-[100px] object-contain cursor-pointer'
             onClick={() => navigate(`/product/${item.id}`)}
           >
+            <div className='absolute text-[12px] h-[16px] right-0 bg-white px-2 text-[#006fff]'>
+              {item.line.name}
+            </div>
             <img
               className='w-full h-[100px] object-contain'
               alt={`${item.product.name} image`}

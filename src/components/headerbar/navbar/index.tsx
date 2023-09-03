@@ -14,7 +14,7 @@ const NavBar = () => {
   return (
     <div className='flex w-full bg-white px-8 h-12'>
       <div className='flex max-w-full items-center basis-full space-between'>
-        <button onClick={() => navigate("/")} className='flex flex-grow'>
+        <button onClick={() => navigate(-1)} className='flex flex-grow'>
           Back
         </button>
         <div className='flex flex-end'>
