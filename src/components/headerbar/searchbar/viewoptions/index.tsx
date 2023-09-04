@@ -14,6 +14,8 @@ const FilterBox = () => {
   return (
     <div className='flex flex-grow items-center justify-end'>
       <button
+        tabIndex={1}
+        className='outline-[#016fff]'
         onClick={() =>
           setSearchParams(() => {
             return new URLSearchParams({
@@ -32,6 +34,8 @@ const FilterBox = () => {
         />
       </button>
       <button
+        tabIndex={2}
+        className='outline-[#016fff]'
         onClick={() =>
           setSearchParams(() => {
             return new URLSearchParams({
@@ -49,13 +53,19 @@ const FilterBox = () => {
           className={search.includes("grid") ? "blueSvg" : ""}
         />
       </button>
-      <div className='hidden pl-auto md:block md:visible md:pl-4'>
+      <div
+        tabIndex={3}
+        className='hidden pl-auto md:block md:visible md:pl-4 outline-[#016fff]'
+      >
         <button
+          tabIndex={-1}
           ref={ref}
           className='text-gray-600'
           onClick={() => setIsOpen(!isOpen)}
         >
-          <p className={isOpen ? "text-[#006fff]" : ""}>Filter</p>
+          <p tabIndex={-1} className={isOpen ? "text-[#006fff]" : ""}>
+            Filter
+          </p>
         </button>
         <div
           className={`bg-white absolute right-0 w-48 flex text-gray ${

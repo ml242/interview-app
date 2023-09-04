@@ -2,19 +2,22 @@ import { useNavigate } from "react-router-dom";
 import { Product } from "../../../constants/types";
 import { ImageSource } from "../../../constants/globals";
 
-const Card = ({ item }: { item: Product }) => {
+const Card = ({ item, tabIndex }: { tabIndex: number; item: Product }) => {
   const navigate = useNavigate();
   const imageIndex = item.icon.resolutions.length - 1;
 
   return (
-    <div className='flex flex-col h-full relative shadow-sm rounded hover:brightness-95 hover:bg-gray-100/25'>
+    <div
+      tabIndex={tabIndex}
+      className='flex flex-col h-full relative shadow-sm rounded hover:brightness-95 hover:bg-gray-100/25 outline-[#016fff]'
+    >
       <div className='flex flex-col items-center justify-center relative'>
         <div className='bg-gray-100/25 flex relative w-full p-[8px]'>
           <a
             className='w-full h-[100px] object-contain cursor-pointer'
             onClick={() => navigate(`/product/${item.id}`)}
           >
-            <div className='absolute text-[12px] h-[16px] right-0 bg-white px-2 text-[#006fff]'>
+            <div className='absolute text-[12px] h-[16px] right-1 bg-white px-2 text-[#006fff]'>
               {item.line.name}
             </div>
             <img
