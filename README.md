@@ -1,4 +1,4 @@
-# Hello Ubiquiti
+## Hello Ubiquiti!
 
 Here is the code for the take home assignment running at [Interview App](https://interview-app.pages.dev/)
 
