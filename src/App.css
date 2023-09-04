@@ -10,19 +10,46 @@
     filter: invert(12%) sepia(63%) saturate(6234%) hue-rotate(193deg) brightness(87%) contrast(156%)
 }
 
+.content {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  margin: 0 auto;
+  height: 100vh;
+
+  > div {
+    animation: growAndFade 3s infinite ease-out;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 50%;
+
+    place-items: center;
+    margin: 0 auto;
+    height: 100vh;
+  }
+  
+  .circle1 {
+    animation-delay: 500ms;    
+  }
+  .circle2 {
+    animation-delay: 1s; 
+  }
+  .circle3 {
+    animation-delay: 1500ms;
+  }
+}
+
 .loading {
   display: flex;
   place-items: center;
   min-height: 100vh;
 }
 
-.loading .margin {
-  margin: 0 auto;
-}
-
 .logo {
-  padding: 2rem;
-  height: 15em;
   transition: filter 300ms;
 }
 
@@ -40,6 +67,17 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes growAndFade {
+  0% {
+    opacity: .25;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
   }
 }
 
