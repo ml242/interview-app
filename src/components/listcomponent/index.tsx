@@ -1,23 +1,47 @@
+import { useNavigate } from "react-router-dom";
 import { ProductsType } from "../../constants/types";
 import { ImageSource } from "../../constants/globals";
+
 export default function Page({ products }: { products: ProductsType }) {
-  if (!products) return <h5>Api error</h5>;
+  const navigate = useNavigate();
   const listItems = products.map((item) => {
     return (
-      <a className='flex flex-col' href={`/product/${item.id}`} key={item.id}>
-        <li className='h-8 flex flex-row gap-4 border-[0] border-b border-solid text-[#00000073] text-[14px] border-coolgray-200 items-center'>
+      <tr
+        key={item.id}
+        className='h-[20px] text-[#00000073] text-[14px] border-[0] border-b border-solid hover:bg-gray-50'
+      >
+        <td>
           <img
             className='basis-2/10'
             src={`${ImageSource}${item.icon.id}_${item.icon.resolutions[0][0]}x${item.icon.resolutions[0][1]}.png`}
           />
-          <div className='flex basis-1/2'>{item.line.name}</div>
-          <div className='hidden md:flex md:basis-1/2 h-[20px]'>
-            <p>{item.product.name}</p>
-          </div>
-        </li>
-      </a>
+        </td>
+        <td onClick={() => navigate(`/product/${item.id}`)}>
+          {item.line.name}
+        </td>
+        <td onClick={() => navigate(`/product/${item.id}`)}>
+          {item.product.name}
+        </td>
+      </tr>
     );
   });
 
-  return <ul className='w-full px-8'>{listItems}</ul>;
+  return (
+    <div className='px-8 h-[calc(100vh-106px)] overflow-scroll'>
+      <table className='table-fixed w-full'>
+        <thead className=''>
+          <tr className='sticky top-0 bg-white'>
+            <th className='w-1/12'></th>
+            <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
+              Line
+            </th>
+            <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
+              Name
+            </th>
+          </tr>
+        </thead>
+        <tbody className=''>{listItems}</tbody>
+      </table>
+    </div>
+  );
 }

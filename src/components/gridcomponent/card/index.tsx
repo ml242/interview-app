@@ -6,10 +6,8 @@ const Card = ({ item }: { item: Product }) => {
   const navigate = useNavigate();
   const imageIndex = item.icon.resolutions.length - 1;
 
-  console.log(item.line.name);
-
   return (
-    <div className='flex flex-col h-full relative shadow-sm'>
+    <div className='flex flex-col h-full relative shadow-sm rounded'>
       <div className='flex flex-col items-center justify-center relative'>
         <div className='bg-gray-100/25 flex relative w-full p-[8px]'>
           <a
@@ -26,7 +24,7 @@ const Card = ({ item }: { item: Product }) => {
             />
           </a>
         </div>
-        <div className='w-full flex-grow flex flex-col p-4 bg-white-100'>
+        <div className='w-full flex-grow flex flex-col p-2 bg-white-100'>
           <div className='relative mt-[-1.00px] h-[40px] whitespace-nowrap overflow-hidden'>
             <p className='text-black text-opacity-75 text-xl'>
               {item.product.name}
