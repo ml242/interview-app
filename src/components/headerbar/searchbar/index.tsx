@@ -5,7 +5,7 @@ import { useProducts } from "../../../context/ProductsProvider";
 const SearchBar = () => {
   const { products, filteredProducts } = useProducts();
   return (
-    <div tabIndex={-1} className='w-full flex h-16 bg-white px-8'>
+    <div className='w-full flex h-16 bg-white px-8'>
       <div className='flex items-center flex basis-full space-between'>
         <div className='flex items-center'>
           <SearchBox />

@@ -15,7 +15,7 @@ const FilterBox = () => {
     <div className='flex flex-grow items-center justify-end'>
       <button
         tabIndex={1}
-        className='outline-[#016fff]'
+        className='outline-[#016fff] hover:bg-gray-300/25'
         onClick={() =>
           setSearchParams(() => {
             return new URLSearchParams({
@@ -35,7 +35,7 @@ const FilterBox = () => {
       </button>
       <button
         tabIndex={2}
-        className='outline-[#016fff]'
+        className='outline-[#016fff] hover:bg-gray-300/25'
         onClick={() =>
           setSearchParams(() => {
             return new URLSearchParams({
@@ -55,12 +55,12 @@ const FilterBox = () => {
       </button>
       <div
         tabIndex={3}
-        className='hidden pl-auto md:block md:visible md:pl-4 outline-[#016fff]'
+        className='hidden h-[36px] ml-auto md:block md:visible md:ml-4 outline-[#016fff] hover:bg-gray-300/25'
       >
         <button
           tabIndex={-1}
           ref={ref}
-          className='text-gray-600'
+          className='text-gray-600 h-full'
           onClick={() => setIsOpen(!isOpen)}
         >
           <p tabIndex={-1} className={isOpen ? "text-[#006fff]" : ""}>
