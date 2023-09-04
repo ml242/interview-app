@@ -8,7 +8,7 @@ export default function Page({ products }: { products: ProductsType }) {
     return (
       <tr
         key={item.id}
-        className='h-[20px] text-[#00000073] text-[14px] border-[0] border-b border-solid hover:bg-gray-50'
+        className='h-[20px] text-[#00000073] text-[14px] border-[0] border-b border-solid cursor-pointer hover:bg-gray-50'
       >
         <td>
           <img
@@ -31,10 +31,10 @@ export default function Page({ products }: { products: ProductsType }) {
       <thead className=''>
         <tr className='sticky top-0 bg-white'>
           <th className='w-1/12'></th>
-          <th className='w-5/11 text-left text-[#000000d9] text-[14px] cursor-pointer'>
+          <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
             Line
           </th>
-          <th className='w-5/11 text-left text-[#000000d9] text-[14px] cursor-pointer'>
+          <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
             Name
           </th>
         </tr>
