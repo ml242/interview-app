@@ -27,21 +27,19 @@ export default function Page({ products }: { products: ProductsType }) {
   });
 
   return (
-    <div className='px-8 h-[calc(100vh-106px)] overflow-scroll'>
-      <table className='table-fixed w-full'>
-        <thead className=''>
-          <tr className='sticky top-0 bg-white'>
-            <th className='w-1/12'></th>
-            <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
-              Line
-            </th>
-            <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
-              Name
-            </th>
-          </tr>
-        </thead>
-        <tbody className=''>{listItems}</tbody>
-      </table>
-    </div>
+    <table className='table-fixed w-full'>
+      <thead className=''>
+        <tr className='sticky top-0 bg-white'>
+          <th className='w-1/12'></th>
+          <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
+            Line
+          </th>
+          <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
+            Name
+          </th>
+        </tr>
+      </thead>
+      <tbody className=''>{listItems}</tbody>
+    </table>
   );
 }

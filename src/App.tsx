@@ -17,11 +17,13 @@ function App() {
   return (
     <>
       <Navbar />
-      {viewType === "grid" ? (
-        <GridComponent products={filteredProducts || products} />
-      ) : (
-        <ListComponent products={filteredProducts || products} />
-      )}
+      <div className='px-8 h-[calc(100vh-106px)] overflow-scroll no-scrollbar'>
+        {viewType === "grid" ? (
+          <GridComponent products={filteredProducts || products} />
+        ) : (
+          <ListComponent products={filteredProducts || products} />
+        )}
+      </div>
     </>
   );
 }
