@@ -12,7 +12,7 @@ const FilterBox = () => {
   const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
 
   return (
-    <div className='hidden md:flex flex-grow items-center justify-end'>
+    <div className='flex flex-grow items-center justify-end'>
       <button
         onClick={() =>
           setSearchParams(() => {
@@ -49,7 +49,7 @@ const FilterBox = () => {
           className={search.includes("grid") ? "blueSvg" : ""}
         />
       </button>
-      <div className='relative pl-4'>
+      <div className='hidden pl-auto md:flex relative md:pl-4'>
         <button
           ref={ref}
           className='text-gray-600'
@@ -57,7 +57,6 @@ const FilterBox = () => {
         >
           <p className={isOpen ? "text-[#006fff]" : ""}>Filter</p>
         </button>
-
         <div
           className={`bg-white absolute right-0 w-48 flex text-gray ${
             isOpen ? "" : "hidden"

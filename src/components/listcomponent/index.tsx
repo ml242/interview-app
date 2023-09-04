@@ -11,7 +11,7 @@ export default function Page({ products }: { products: ProductsType }) {
             src={`${ImageSource}${item.icon.id}_${item.icon.resolutions[0][0]}x${item.icon.resolutions[0][1]}.png`}
           />
           <div className='flex basis-1/2'>{item.line.name}</div>
-          <div className='flex sm: hidden md: basis-1/2 h-[20px]'>
+          <div className='hidden md:flex md:basis-1/2 h-[20px]'>
             <p>{item.product.name}</p>
           </div>
         </li>

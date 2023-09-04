@@ -1,4 +1,4 @@
-import FilterBox from "./filterbox";
+import ViewOptions from "./viewoptions";
 import SearchBox from "./searchbox";
 import { useProducts } from "../../../context/ProductsProvider";
 
@@ -13,7 +13,7 @@ const SearchBar = () => {
             <span>Devices {filteredProducts?.length || products?.length}</span>
           </div>
         </div>
-        <FilterBox />
+        <ViewOptions />
       </div>
     </div>
   );
