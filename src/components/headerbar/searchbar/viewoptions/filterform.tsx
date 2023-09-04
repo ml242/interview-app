@@ -6,9 +6,10 @@ const FilterForm = () => {
   const { tags } = useProducts();
   const checkboxes = tags?.map((item: string, i: number) => {
     return (
-      <div key={i} className='flex'>
-        <label className='flex basis-full justify-between'>
+      <div tabIndex={i} key={i} className='flex outline-[#016fff]'>
+        <label className='flex basis-full justify-between py-1'>
           <input
+            tabIndex={-1}
             className=''
             type='checkbox'
             name={item}
@@ -23,12 +24,14 @@ const FilterForm = () => {
   });
 
   return (
-    <form
-      className='flex flex-col basis-full rounded-[8px] text-bold p-4 shadow'
-      onClick={(e) => e.stopPropagation()}
-    >
-      <p className='text-black text-opacity-75 my-4'>Product Line</p>
-      {checkboxes}
+    <div className='flex flex-col basis-full rounded-[8px] shadow h-[400px]'>
+      <form
+        className='text-bold p-4 overflow-y-scroll'
+        onClick={(e) => e.stopPropagation()}
+      >
+        <p className='text-black text-opacity-75 mb-4'>Product Line</p>
+        {checkboxes}
+      </form>
       <button
         disabled={!filters || filters.length < 1}
         onClick={(e) => {
@@ -38,14 +41,14 @@ const FilterForm = () => {
         className='flex flex-start'
       >
         <p
-          className={`text-opacity-75 my-4 ${
+          className={`text-opacity-75 p-4 ${
             !filters || filters.length < 1 ? "text-red-300" : "text-red-600"
           }`}
         >
           Reset
         </p>
       </button>
-    </form>
+    </div>
   );
 };
 
