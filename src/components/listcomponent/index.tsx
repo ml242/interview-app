@@ -31,10 +31,10 @@ export default function Page({ products }: { products: ProductsType }) {
       <thead className=''>
         <tr className='sticky top-0 bg-white'>
           <th className='w-1/12'></th>
-          <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
+          <th className='w-5/11 text-left text-[#000000d9] text-[14px] cursor-pointer'>
             Line
           </th>
-          <th className='w-5/11 text-left text-[#000000d9] text-[14px]'>
+          <th className='w-5/11 text-left text-[#000000d9] text-[14px] cursor-pointer'>
             Name
           </th>
         </tr>

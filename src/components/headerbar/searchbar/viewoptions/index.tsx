@@ -49,7 +49,7 @@ const FilterBox = () => {
           className={search.includes("grid") ? "blueSvg" : ""}
         />
       </button>
-      <div className='hidden pl-auto md:flex relative md:pl-4'>
+      <div className='hidden pl-auto md:block md:visible md:pl-4'>
         <button
           ref={ref}
           className='text-gray-600'

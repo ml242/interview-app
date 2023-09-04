@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='px-8 h-[calc(100vh-106px)] overflow-scroll no-scrollbar'>
+      <div className='px-8 h-[calc(100vh-116px)] overflow-scroll no-scrollbar'>
         {viewType === "grid" ? (
           <GridComponent products={filteredProducts || products} />
         ) : (
