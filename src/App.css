@@ -36,11 +36,9 @@
   animation: growAndFade 3s infinite ease-out;
   background-color: dodgerblue;
   border-radius: 50%;
-  height: 100%;
   opacity: 0;
   position: absolute;
-  width: 50%;
-
+  width: 100%;
   place-items: center;
   margin: 0 auto;
   height: 100vh;
