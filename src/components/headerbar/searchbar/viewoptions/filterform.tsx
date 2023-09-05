@@ -26,10 +26,12 @@ const FilterForm = () => {
   return (
     <div className='flex flex-col basis-full rounded-[8px] shadow h-[400px]'>
       <form
-        className='text-bold p-4 overflow-y-scroll'
+        className='text-bold ps-4 overflow-y-scroll'
         onClick={(e) => e.stopPropagation()}
       >
-        <p className='text-black text-opacity-75 mb-4'>Product Line</p>
+        <p className='text-black text-opacity-75 w-full p-4 sticky top-0 bg-white'>
+          Product Line
+        </p>
         {checkboxes}
       </form>
       <button
