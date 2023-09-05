@@ -18,8 +18,12 @@ It was a fun assignment with a lot to explore. As it was also pretty open ended 
 
 3. The technologies I have used are Vite and Tailwind as both of them "get out of your way" and would be easy for the team taking the handoff to incorporate more specific UI libraries for theming, icons, or if there were additional needs like SSR.
 
-This decision was guided by the instructions - it was hinted that this app is more of an internal tool than a public facing application, although I'd be happy to explore it more with more time to add the drop shadows and graphics.
+4. I did leverage one UI toolkit from Ant Design to make the combobox. This is a simple lib. With another day I would have architected a custom component like the Filter Box. It would work the same way, taking in the list of data, filtering by name and tag, combing the results, and then printing the child element to the dom with the name and tag. To underline the matched part of the string would take a simple helper and a bit of css in the span.
 
-**Hope you enjoy, I look forward to hearing from you.**
+Regardless, these decisions were guided by the instructions - it was hinted that this app is more of an internal tool than a public facing application and the time limit.
+
+I'd be happy to explore it more with more time to add more specialized drop shadows, ui, the custom combo box, etc.
+
+Hope you enjoy,
 
 Matt

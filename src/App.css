@@ -47,13 +47,13 @@
 }
 
 .content .circle1 {
-  animation-delay: 500ms;    
+  animation-delay: 1s;    
 }
 .content .circle2 {
-  animation-delay: 1s; 
+  animation-delay: 1.25s; 
 }
 .content .circle3 {
-  animation-delay: 1500ms;
+  animation-delay: 1.5s;
 }
 
 .loading {
